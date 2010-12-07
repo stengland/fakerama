@@ -30,6 +30,16 @@ module Fakerama
       def filled_tag(tag_name, type = :sentence, count = 3)
         content_tag( tag_name, Faker::Lorem.send(type, count))
       end
+
+      def content
+        paragraphs(3) +
+          headings(2..5) +
+          filled_tag(:blockquote) +
+          paragraph +
+          list(:ol, 5) +
+          paragraph +
+          list(:ul, 3)
+      end
     end
   end
 end
