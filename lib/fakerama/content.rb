@@ -5,7 +5,7 @@ module Fakerama
 
       def headings(range = 1..6)
         range.map do |size|
-          filled_tag("h#{size}") + paragraph
+          [filled_tag("h#{size}"),  paragraph].join
         end.to_s
       end
 
@@ -19,26 +19,25 @@ module Fakerama
 
       def paragraphs(count=1)
         count.times.map do
-          content_tag( :p, Faker::Lorem.paragraph ) 
+          content_tag( :p, Faker::Lorem.paragraph )
         end.to_s
       end
 
-      def paragraph
-        paragraphs(1)
-      end
+      alias :paragraph :paragraphs
 
       def filled_tag(tag_name, type = :sentence, count = 3)
         content_tag( tag_name, Faker::Lorem.send(type, count))
       end
 
       def content
-        paragraphs(3) +
-          headings(2..5) +
-          filled_tag(:blockquote) +
-          paragraph +
-          list(:ol, 5) +
-          paragraph +
-          list(:ul, 3)
+        [paragraphs(3),
+          headings(2..5),
+          filled_tag(:blockquote),
+          paragraph,
+          list(:ol, 5),
+          paragraph,
+          list(:ul, 3),
+          paragraphs(4)].shuffle.join
       end
     end
   end

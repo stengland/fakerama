@@ -32,4 +32,8 @@ describe Fakerama::Content do
   it "should create other tags filled with content" do
     Fakerama::Content.filled_tag('blockquote').should match(/<blockquote>.*<\/blockquote>/)
   end
+
+  it "should generate content" do
+    Fakerama::Content.content
+  end
 end

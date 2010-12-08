@@ -6,12 +6,13 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "fakerama"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Create website content using Faker}
+    gem.description = %Q{Create website content using Faker. Incudes html content generation and stock files that can be used in your specs and or scripts}
     gem.email = "steve@wearebeef.co.uk"
     gem.homepage = "http://github.com/stengland/fakerama"
     gem.authors = ["Steve England"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
+    gem.add_dependency 'faker'
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
