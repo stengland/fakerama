@@ -6,7 +6,7 @@ module Fakerama
       def headings(range = 1..6)
         range.map do |size|
           [filled_tag("h#{size}"),  paragraph].join
-        end.to_s
+        end.join
       end
 
       def list(*args)
@@ -20,7 +20,7 @@ module Fakerama
       def paragraphs(count=1)
         count.times.map do
           content_tag( :p, Faker::Lorem.paragraph )
-        end.to_s
+        end.join
       end
 
       alias :paragraph :paragraphs
