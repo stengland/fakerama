@@ -1,3 +1,4 @@
+require "fakerama/version"
 require 'faker'
 require 'active_support/core_ext/string/output_safety'
 require 'active_support/concern'
