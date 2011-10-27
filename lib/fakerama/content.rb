@@ -13,7 +13,7 @@ module Fakerama
         list_type = (args.first.to_s == 'ol') ? 'ol' : 'ul'
         items = args.last.to_i.times.map do |i|
           content_tag( :li, Faker::Lorem.sentence )
-        end
+        end.join
         content_tag(list_type, items, {}, false)
       end
 
